@@ -1,0 +1,68 @@
+@import '../../../styles/variables';
+
+.formContainer {
+    display: flex;
+    flex-direction: column;
+}
+
+.img_preview {
+    width: 100%;
+    height: 20rem;
+    object-fit: cover;
+    border-radius: $main-border-radius;
+}
+
+.formContainer .file_upload {
+    // margin-left: auto; /* Empurra o input para a direita */
+    padding: 0.5rem;
+    // border: 1px solid #575757;
+    margin-top: 1rem;
+    border-radius: $main-border-radius;
+    cursor: pointer;
+}
+
+.formContainer .logo_upload {
+    width: 150px;
+    height: 150px;
+    margin: 0 auto;
+    object-fit: cover;
+    cursor: pointer;
+}
+
+.formContainer span {
+    margin-top: 1rem;
+}
+
+.formContainer .formInput {
+    padding: 0.5rem;
+    outline: none;
+    border: 1px solid #575757; 
+    border-radius: 0.2rem;
+}
+
+.formContainer .formInput:focus {
+    border-color: #0d0d0d; 
+}
+
+.formContainer .formInput:active {
+    border-color: #0d0d0d; 
+}
+
+.btn_submit {
+    background: rgb(79, 209, 24);
+    border: none;
+    color: #fff;
+    font-size: 0.8rem;
+    padding: 0.625rem;
+    border-radius: $main-border-radius;
+    cursor: pointer;
+    margin-top: 1rem;
+    width: 6rem;
+    margin-left: auto;
+}
+
+.btn_submit:hover {
+    background: rgb(63, 164, 20);
+}
+
+

@@ -1,0 +1,100 @@
+'use client';
+
+import { supabase } from '../../../lib/supabaseClient'; 
+import { Category, Product } from '../../../utils/types/types'; 
+import React, { useEffect, useState } from 'react'; 
+
+interface HomeProps {
+  categorys: Category[]; // Define um tipo para as categorias
+  products: Product[]; // Define um tipo para os produtos
+}
+
+// Função para buscar dados do Supabase
+const fetchDataFromSupabase = async () => {
+  try {
+    console.log('Fetching data from Supabase...'); // Log indicando que os dados estão sendo buscados
+
+    // Busca as categorias no Supabase
+    const { data: categorys, error: categorysError } = await supabase
+      .from('category')
+      .select('*');
+
+    // Busca os produtos no Supabase
+    const { data: products, error: productsError } = await supabase
+      .from('product')
+      .select('*');
+
+    // Verifica se houve erro ao buscar as categorias
+    if (categorysError) {
+      throw new Error('Error fetching categorys');
+    }
+
+    // Verifica se houve erro ao buscar os produtos
+    if (productsError) {
+      throw new Error('Error fetching products');
+    }
+
+    // Log com as categorias buscadas
+    console.log('Fetched categorys:', categorys);
+    // Log com os produtos buscados
+    console.log('Fetched products:', products);
+
+    // Retorna as categorias e produtos encontrados
+    return {
+      categorys,
+      products,
+    };
+  } catch (error) {
+    // Trata qualquer erro ocorrido durante a busca de dados
+    console.error('Error fetching data:', error);
+    // Retorna um objeto vazio em caso de erro
+    return {
+      categorys: [],
+      products: [],
+    };
+  }
+};
+
+
+const Home: React.FC = () => {
+  // Estados para armazenar as categorias e produtos
+  const [categorys, setCategorys] = useState<Category[]>([]);
+  const [products, setProducts] = useState<Product[]>([]);
+
+  // Efeito para buscar os dados ao montar o componente
+  useEffect(() => {
+    // Função assíncrona para buscar os dados
+    const fetchData = async () => {
+      // Busca as categorias e produtos do Supabase
+      const { categorys, products } = await fetchDataFromSupabase();
+      // Atualiza os estados com as categorias e produtos buscados
+      setCategorys(categorys);
+      setProducts(products);
+    };
+
+    // Chama a função para buscar os dados
+    fetchData();
+  }, []); 
+
+  return (
+    <div>
+      <h1>Categories</h1>
+      <ul>
+        {categorys.map((category) => (
+          <li key={category.id}>{category.category_name}</li>
+        ))}
+      </ul>
+
+      <h1>Products</h1>
+      <ul>
+        {products.map((product) => (
+          <li key={product.id}>
+            {product.name} - {product.info} - ${product.price} - {product.image_url} - Category ID: {product.category_id}
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+};
+
+export default Home;

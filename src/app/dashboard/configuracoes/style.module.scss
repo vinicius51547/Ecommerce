@@ -1,0 +1,35 @@
+@import '../../styles/variables';
+
+.container {
+    padding: 30px;
+}
+
+.main{
+    position: absolute;
+    width: calc(100% - 280px);
+    left: 280px;
+    min-height: 100vh;
+    transition:  0.5s ease-in;
+    background-color: #f6f6f6;
+}
+
+.main.active{
+    width: calc(100% - 70px);
+    left: 70px;
+
+    .btnSide {
+        left: 0px;
+    }
+}
+.btnSide {
+    font-size: 1.2rem;
+    left: -45px;
+    position: relative;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    background: #fff;
+    border: 0;
+    transition:  0.5s ease-in;
+    cursor: pointer;
+}

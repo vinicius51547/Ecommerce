@@ -1,0 +1,105 @@
+@import '../../../styles/variables';
+
+.listTopConatiner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+
+.listTopConatiner button {
+    background: #3874ff;
+    border: none;
+    color: #fff;
+    font-size: 0.8rem;
+    padding: 0.625rem;
+    border-radius: $main-border-radius;
+    cursor: pointer;
+}
+
+.listTopConatiner button i {
+    padding-right: 0.2rem;
+}
+
+.listTopConatiner button:hover {
+    background: #383bff;
+}
+
+// Search
+.searchContainer {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+}
+
+.searchContainer i {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #888;
+    font-size: 18px;
+}
+
+.searchInput {
+    padding-left: 35px;
+    border-radius: $main-border-radius;
+    border: 1px solid #e3e3e3;
+    height: 35px;
+    font-size: 15px;
+}
+
+// Tabela
+.table {
+    border-collapse:separate;
+    border-spacing: 0;
+    width: 100%;
+    border: 1px solid #e9e9e9;
+    border-radius: $main-border-radius;
+}
+
+.table td {
+    border: none;
+}
+
+.btn_edit {
+    background: transparent;
+    border: none;
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
+.btn_delete {
+    background: transparent;
+    border: none;
+    font-size: 1.2rem;
+    color: red;
+    cursor: pointer;
+}
+
+.table_row>th {
+    width: 100%;
+    padding: 10px 20px;
+    background: #e3e3e3;
+}
+
+.table_row>th:first-child{
+    border-top-left-radius: 0.2rem;
+}
+
+.table_row>th:last-child {
+    border-top-right-radius: 0.2rem;
+}
+
+
+.table_row>td {
+    width: 100%;
+    padding: 10px 20px;
+    border-top: 1px solid #f6f6f6;
+}
+
+.empty_header {
+    text-align: start;
+    font-weight: 600;
+}
+

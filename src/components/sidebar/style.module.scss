@@ -1,0 +1,61 @@
+.sidebarContainer {
+  width: 280px;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #ffffff;
+  transition: 0.5s ease-in;
+  overflow: hidden;
+}
+
+.sidebarContainer.active {
+  width: 70px;
+}
+
+.sidebarItem {
+  position: relative;
+  display: flex;
+  text-decoration: none;
+  color: #000;
+  font-size: 1.1rem;
+  align-items: center;
+  margin: 0 10px;
+}
+
+.sidebarItem.active {
+  color: aqua;
+}
+
+.sidebarItem:hover {
+  background-color: #e3e3e3;
+}
+
+.icon {
+  position: relative;
+  display: block;
+  min-width: 50px;
+  text-align: center;
+  font-size: 1.8rem;
+}
+
+.title {
+  position: relative;
+  display: block;
+  padding: 0 10px;
+  height: 60px;
+  line-height: 60px;
+  text-align: start;
+  white-space: nowrap;
+}
+
+.activeLink {
+  color: blue;
+}
+
+.logout {
+  bottom: 0;
+  position: absolute;
+  width: 100%;
+}
+
